@@ -1,0 +1,139 @@
+{
+ "cats": [
+  {
+   "handle": "audio-y-sonido-audio-altavoces-audio-altavoces-repuestos-altavoces",
+   "name": "Altavoces y woofers",
+   "count": 390,
+   "img": "img/r_cat0.webp",
+   "from": "DT-AUDIO DT-8WR250 - Woofer 8\" 250W RMS 8 Ohm Bobina 65mm"
+  },
+  {
+   "handle": "repuestos-altavoces-membranas-y-tweeters-membranas",
+   "name": "Membranas y tweeters",
+   "count": 45,
+   "img": "img/r_cat1.webp",
+   "from": "Membrana de Tweeter Universal 25,5mm - Repuesto Driver Agudos"
+  },
+  {
+   "handle": "audio-y-sonido-audio-auriculares-audio-auriculares-repuestos-auriculares",
+   "name": "Almohadillas y auriculares",
+   "count": 63,
+   "img": "img/r_cat2.webp",
+   "from": "Almohadillas de Repuesto Compatibles con Pioneer HDJ-CUE1"
+  },
+  {
+   "handle": "repuestos-mezcladores",
+   "name": "Faders y mezcladores",
+   "count": 46,
+   "img": "img/r_cat3.webp",
+   "from": "Pioneer DJ DCV1009 | Pitch Fader de Repuesto para Mezclador"
+  },
+  {
+   "handle": "audio-y-sonido-audio-giradiscos-audio-giradiscos-capsulas-agujas-accesorios",
+   "name": "Agujas y cápsulas",
+   "count": 124,
+   "img": "img/r_cat4.webp",
+   "from": "Aguja de Repuesto para Tocadiscos Sinfonola 1000 y 2000 | Punta Diamante"
+  },
+  {
+   "handle": "fuentes-alimentacion",
+   "name": "Alimentadores",
+   "count": 84,
+   "img": "img/r_cat5.webp",
+   "from": "Alimentador Estabilizado 12V 2A 24W | NIMO ALM046 | Jack 5,5x2,1mm Universal"
+  },
+  {
+   "handle": "cables-audio-hechos-a-mano-a-medida",
+   "name": "Cables a medida",
+   "count": 25,
+   "img": "img/r_cat6.webp",
+   "from": "Mundo Conectado — Cable Jack 6,3mm Mono a 2 RCA Macho | Varias Medidas"
+  },
+  {
+   "handle": "correa-repuesto-giradiscos",
+   "name": "Correas de giradiscos",
+   "count": 9,
+   "img": "img/r_cat7.webp",
+   "from": "Correa de Repuesto para Giradiscos de Vinilo 32,5cm | Belt Drive"
+  }
+ ],
+ "destacados": [
+  {
+   "handle": "pioneer-x5-repuesto-almohadillas",
+   "name": "Almohadillas Pioneer HDJ-X5",
+   "sub": "Cuero sintético, 85 mm",
+   "price": "10.00",
+   "available": true,
+   "img": "img/r_p0.webp"
+  },
+  {
+   "handle": "pioneer-dj-dcv1035-fader-ddj-rev1-rev5-flx4-flx6-flx10",
+   "name": "Fader DCV1035 para Pioneer DJ",
+   "sub": "Para DDJ-FLX4, FLX6, REV1...",
+   "price": "15.00",
+   "available": true,
+   "img": "img/r_p1.webp"
+  },
+  {
+   "handle": "almohadillas-de-repuesto-compatibles-con-pioneer-hdj-cx",
+   "name": "Almohadillas Pioneer HDJ-CX",
+   "sub": "Compatibles, par",
+   "price": "14.00",
+   "available": true,
+   "img": "img/r_p2.webp"
+  },
+  {
+   "handle": "4261-membrana-beyma-cp-21-22-25",
+   "name": "Membrana Beyma CP-21/22/25",
+   "sub": "Para driver de compresión",
+   "price": "20.00",
+   "available": true,
+   "img": "img/r_p3.webp"
+  },
+  {
+   "handle": "pioneer-dj-dcv1023-crossfader",
+   "name": "Crossfader DCV1023",
+   "sub": "Crossfader de repuesto",
+   "price": "35.00",
+   "available": true,
+   "img": "img/r_p4.webp"
+  },
+  {
+   "handle": "aguja-tocadiscos-fox-540-dst-w",
+   "name": "Aguja FOX 540 DST-W",
+   "sub": "Compatible con Dual D-201",
+   "price": "29.80",
+   "available": true,
+   "img": "img/r_p5.webp"
+  },
+  {
+   "handle": "almohadillas-repuesto-sennheiser-hd598-hd558-hd518-hd599-hd569-40mm",
+   "name": "Almohadillas Sennheiser HD598",
+   "sub": "También HD558, HD518, HD599...",
+   "price": "8.00",
+   "available": true,
+   "img": "img/r_p6.webp"
+  },
+  {
+   "handle": "1-pieza-diafragma-de-tweeter-de-25-4-mm-1-pulgada-para-bocina-de-agudos-impedancia-de-8-ω-kit-de-reparacion-de-bobina-de-voz-con-bobinado-de-aluminio-revestido-de-cobre",
+   "name": "Diafragma de tweeter 1\"",
+   "sub": "25,4 mm, para bocina de agudos",
+   "price": "12.00",
+   "available": true,
+   "img": "img/r_p7.webp"
+  }
+ ],
+ "ficha": {
+  "title": "Pioneer DJ DCV1035 | Fader de Volumen de Canal Compatible DDJ REV1 REV5 FLX4 FLX6 FLX10",
+  "vendor": "Pioneer DJ",
+  "price": "15.00",
+  "available": true,
+  "sku": "DCV1035",
+  "variant": 52901711839570,
+  "imgs": [
+   "img/r_f0.webp",
+   "img/r_f1.webp"
+  ],
+  "desc": "Fader de volumen de canal DCV1035 compatible con una amplia gama de controladores Pioneer DJ. Repuesto ideal para sustituir faders desgastados o con respuesta irregular y recuperar el control preciso de volumen en tu equipo. Compatibilidad ✅ DDJ-REV1 ✅ DDJ-REV5 ✅ DDJ-FLX4 ✅ DDJ-FLX6 ✅ DDJ-FLX6-GT ✅ DDJ-FLX10 Características ⚙️ Componente compatible — no es pieza original de fábrica 🎶 Fader de volumen de canal — control preciso y suave 🔧 Instalación directa — sin modificaciones 💼 Referencia: DCV1035 Especificaciones Referencia: DCV1035 Tipo: Fader de volumen de canal (compatible) Marca compatible: Pioneer DJ Modelos: DDJ-REV1, REV5, FLX4, FLX6, FLX6-GT, FLX10 SKU: DCV1035"
+ }
+}

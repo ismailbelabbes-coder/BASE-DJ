@@ -1,0 +1,211 @@
+@import "./fonts.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { background: #121013; color: #F3EEE6; -webkit-text-size-adjust: 100%; }
+  body { font-family: "Plus Jakarta Sans", system-ui, sans-serif; }
+  :focus-visible { outline: 2px solid #F2E205; outline-offset: 3px; border-radius: 6px; }
+  ::selection { background: #F2E205; color: #121013; }
+}
+
+@layer components {
+  /* Botones: píldoras, mayúsculas espaciadas */
+  .btn { @apply inline-flex items-center justify-center gap-2.5 rounded-full px-6 py-3.5 text-[12px] font-bold uppercase tracking-[0.18em] whitespace-nowrap transition duration-200 active:scale-[0.98]; }
+  .btn-volt { @apply btn bg-volt text-ink hover:bg-[#fff36a]; }
+  .btn-glass { @apply btn border border-white/15 bg-white/[0.06] text-cream backdrop-blur-md hover:border-white/30 hover:bg-white/10; box-shadow: inset 0 1px 0 rgba(255,255,255,.08); }
+  .ico { @apply inline-block h-[1.1em] w-[1.1em] shrink-0; }
+
+  /* Mesa iluminada: el blanco de las fotos del fabricante se funde con el papel */
+  .plate { @apply relative overflow-hidden bg-paper; }
+  .plate img { mix-blend-mode: multiply; }
+
+  .glass { @apply border border-white/10 bg-[#1B171C]/70 backdrop-blur-xl; box-shadow: inset 0 1px 0 rgba(255,255,255,.07), 0 30px 80px -30px rgba(0,0,0,.7); }
+}
+
+/* ---------- Escenario del hero ---------- */
+.stage { --x: 0; position: relative; isolation: isolate; }
+.stage .room {
+  position: absolute; inset: 0; z-index: -1; border-radius: inherit; overflow: hidden;
+  background:
+    radial-gradient(60% 45% at 50% 105%, rgba(242,226,5,calc(.10 + var(--x) * .10)), transparent 70%),
+    radial-gradient(80% 60% at 50% 0%, rgba(243,238,230,.05), transparent 70%),
+    #18141A;
+}
+/* Haces de luz (modo Luz) */
+.lights { position: absolute; inset: 0; -webkit-mask-image: linear-gradient(#000 55%, transparent 80%); mask-image: linear-gradient(#000 55%, transparent 80%); z-index: 1; overflow: hidden; border-radius: inherit; pointer-events: none; opacity: var(--x); }
+.lights .haze { position: absolute; inset: 0; background: radial-gradient(70% 45% at 50% 0%, rgba(255,246,170,.22), transparent 70%); }
+.beam {
+  position: absolute; top: -12%; width: 46%; height: 112%; transform-origin: 50% 0;
+  background: conic-gradient(from 168deg at 50% 0, transparent 0deg, rgba(242,226,5,.16) 11deg, rgba(255,250,215,.42) 14deg, rgba(242,226,5,.14) 18deg, transparent 30deg);
+  mix-blend-mode: screen; filter: blur(3px);
+}
+.beam.b1 { left: -2%;  --r0: -14deg; --r1: 6deg; }
+.beam.b2 { left: 27%;  --r0: 8deg;   --r1: -10deg; animation-delay: -2.4s; }
+.beam.b3 { left: 56%;  --r0: 16deg;  --r1: -4deg;  animation-delay: -1.2s; }
+/* Ondas de sonido (modo Sonido) */
+.ring {
+  position: absolute; left: 50%; top: 50%; width: 92%; aspect-ratio: 1; translate: -50% -50%;
+  border-radius: 9999px; border: 1px solid rgba(242,226,5,.35); opacity: calc((1 - var(--x)) * .8); scale: .8;
+}
+.crossfade-a { opacity: calc(1 - var(--x)); }
+.crossfade-b { opacity: var(--x); }
+.stage .plate-wrap { transition: transform .5s cubic-bezier(.16,1,.3,1); }
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Animaciones continuas solo tras la carga, y los haces solo en modo Luz */
+  .ready [data-mode="luz"] .beam { animation: sweep 6s ease-in-out infinite alternate; }
+  .ready [data-mode="sonido"] .ring { animation: pulse 2.6s cubic-bezier(.2,.6,.3,1) infinite; }
+  .ring.r2 { animation-delay: .87s; } .ring.r3 { animation-delay: 1.74s; }
+  .stage:hover .plate-wrap { transform: translateY(-4px); }
+}
+@keyframes sweep { from { transform: rotate(var(--r0)); } to { transform: rotate(var(--r1)); } }
+@keyframes pulse { 0% { scale: .62; opacity: calc((1 - var(--x)) * .9); } 100% { scale: 1.12; opacity: 0; } }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+/* ---------- Crossfader ---------- */
+.xfader { -webkit-appearance: none; appearance: none; width: 100%; height: 44px; background: transparent; cursor: pointer; }
+.xfader::-webkit-slider-runnable-track {
+  height: 6px; border-radius: 9999px;
+  background: linear-gradient(90deg, rgba(243,238,230,.18), rgba(242,226,5,.55));
+}
+.xfader::-moz-range-track { height: 6px; border-radius: 9999px; background: linear-gradient(90deg, rgba(243,238,230,.18), rgba(242,226,5,.55)); }
+.xfader::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 46px; height: 30px; margin-top: -12px; border-radius: 7px;
+  background: linear-gradient(#3a343c, #221e24); border: 1px solid rgba(255,255,255,.18);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.18), inset 0 -2px 0 rgba(0,0,0,.4), 0 6px 14px rgba(0,0,0,.5);
+  background-image: linear-gradient(90deg, transparent 21px, #F2E205 21px, #F2E205 23px, transparent 23px), linear-gradient(#3a343c, #221e24);
+}
+.xfader::-moz-range-thumb {
+  width: 46px; height: 30px; border-radius: 7px; border: 1px solid rgba(255,255,255,.18);
+  background-image: linear-gradient(90deg, transparent 21px, #F2E205 21px, #F2E205 23px, transparent 23px), linear-gradient(#3a343c, #221e24);
+}
+.ticks { background-image: repeating-linear-gradient(90deg, rgba(243,238,230,.22) 0 1px, transparent 1px 10%); }
+
+/* ---------- Rail de productos que cambia con el crossfader ---------- */
+.set { transition: opacity .45s ease, transform .45s cubic-bezier(.16,1,.3,1), visibility .45s; }
+[data-mode="luz"] .set-sonido, [data-mode="sonido"] .set-luz { opacity: 0; visibility: hidden; transform: translateY(10px); position: absolute; inset: 0; pointer-events: none; }
+
+/* ---------- Mezclador de categorías ---------- */
+.channel .meter i { display: block; height: 7px; border-radius: 2px; background: rgba(243,238,230,.08); transition: background .25s ease; }
+.channel:hover .meter i.on, .channel:focus-visible .meter i.on { background: #F2E205; }
+.channel:hover .meter i.on.hot, .channel:focus-visible .meter i.on.hot { background: #fff8b0; }
+.channel .meter i.on { background: rgba(242,226,5,.55); }
+.channel .cap { transition: transform .45s cubic-bezier(.16,1,.3,1); }
+.channel:hover .cap, .channel:focus-visible .cap { transform: translateY(-34px); }
+
+.no-scrollbar { scrollbar-width: none; } .no-scrollbar::-webkit-scrollbar { display: none; }
+
+@media (prefers-reduced-transparency: reduce) { .glass, .btn-glass { backdrop-filter: none; background: #1B171C; } }
+
+/* Táctil: sin hover, los medidores se ven encendidos */
+@media (hover: none) { .channel .meter i.on { background: #F2E205; } .channel .meter i.on.hot { background: #fff8b0; } }
+
+/* Primer pintado ligero: haces y ondas entran después de la carga */
+html:not(.ready) .lights, html:not(.ready) .ring { display: none; }
+
+/* ================= Ambiente DJ ================= */
+
+/* Grano de club: capa fija, no repinta al hacer scroll */
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: 60; pointer-events: none; opacity: .05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Forma de onda bajo la cabecera: la página avanza como una pista */
+.wave { position: absolute; left: 0; right: 0; bottom: -7px; height: 14px; pointer-events: none;
+  -webkit-mask: url(img/wave.svg) repeat-x left center / auto 100%; mask: url(img/wave.svg) repeat-x left center / auto 100%;
+  background: rgba(243,238,230,.14); }
+.wave i { position: absolute; inset: 0; background: #F2E205; transform-origin: left; transform: scaleX(0); }
+@supports (animation-timeline: scroll()) {
+  .wave i { animation: playhead linear both; animation-timeline: scroll(root); }
+}
+@keyframes playhead { to { transform: scaleX(1); } }
+
+/* Foco que sigue al puntero dentro de la cabina */
+.stage .room::after { content: ""; position: absolute; inset: 0;
+  background: radial-gradient(38% 30% at var(--mx, 50%) var(--my, 35%), rgba(243,238,230,.08), transparent 70%); }
+
+/* Ecualizador (modo Sonido) */
+.eq { position: absolute; left: 7%; right: 7%; bottom: 0; height: 42%; display: flex; align-items: flex-end; gap: 4px;
+  opacity: calc((1 - var(--x)) * .42); -webkit-mask-image: linear-gradient(to top, #000 10%, transparent 85%); mask-image: linear-gradient(to top, #000 20%, transparent); }
+.eq i { flex: 1; height: 100%; border-radius: 3px 3px 0 0; transform-origin: bottom; transform: scaleY(.1);
+  background: linear-gradient(to top, rgba(242,226,5,.55), rgba(242,226,5,.08)); }
+
+/* Marquesina de marcas */
+.marquee .track { display: flex; width: max-content; }
+.marquee ul { display: flex; align-items: center; gap: 3.5rem; padding-right: 3.5rem; }
+.marquee .dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid rgba(243,238,230,.35); box-shadow: inset 0 0 0 3px #121013, inset 0 0 0 6px rgba(243,238,230,.35); }
+
+/* Vinilo con la etiqueta de BaseDJ */
+.vinyl { position: relative; width: 240px; aspect-ratio: 1; border-radius: 50%; box-shadow: 0 40px 70px -30px rgba(0,0,0,.9), 0 0 0 1px rgba(255,255,255,.05); }
+.vinyl .disc { position: absolute; inset: 0; border-radius: 50%;
+  background: radial-gradient(circle, transparent 0 32%, #0c0a0d 32.5% 34%, transparent 34.5%), repeating-radial-gradient(circle, #141115 0 1.4px, #1e1a20 1.4px 2.8px); }
+.vinyl .label { position: absolute; inset: 34%; border-radius: 50%; overflow: hidden; background: #0b0a0c; }
+.vinyl::after { content: ""; position: absolute; inset: 0; border-radius: 50%; pointer-events: none;
+  background: conic-gradient(from 20deg, transparent 0 8%, rgba(255,255,255,.08) 13%, transparent 19% 52%, rgba(255,255,255,.06) 60%, transparent 68%); }
+
+/* Prueba de sonido de los medidores al entrar en pantalla */
+.channel .meter i.on { transition: background .25s ease calc(var(--i, 0) * 55ms); }
+[data-check]:not(.checked) .channel .meter i.on { background: rgba(243,238,230,.08); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .ready [data-mode="sonido"].inview .eq i { animation: eq var(--d, 1s) ease-in-out infinite alternate; animation-delay: var(--dl, 0s); }
+  .ready .marquee.inview .track { animation: slide 45s linear infinite; }
+  .marquee:hover .track { animation-play-state: paused; }
+  .ready .inview .vinyl .disc { animation: spin 3s linear infinite; }
+  .checked .channel .cap { animation: check .9s cubic-bezier(.16,1,.3,1) both; animation-delay: calc(var(--n, 0) * 90ms); }
+}
+@keyframes eq { from { transform: scaleY(.1); } to { transform: scaleY(var(--h, .6)); } }
+@keyframes slide { to { transform: translateX(-50%); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes check { 40% { transform: translateY(-48px); } 100% { transform: none; } }
+
+/* ================= Fondo vivo ================= */
+
+/* La sala: resplandor que late en modo Sonido, barridos de foco en modo Luz (sigue al crossfader con --room) */
+.bg-room { position: fixed; inset: 0; z-index: -2; pointer-events: none; overflow: hidden; }
+.bg-room .glow { position: absolute; left: -10%; right: -10%; bottom: -35%; height: 75%;
+  background: radial-gradient(50% 50% at 50% 100%, rgba(242,226,5,.11), transparent 70%);
+  opacity: calc(1 - var(--room, 0)); transform-origin: 50% 100%; transition: opacity .4s ease; }
+.bg-room .sweep { position: absolute; top: -12%; width: 70vmax; height: 150vh; transform-origin: 50% 0;
+  background: conic-gradient(from 171deg at 50% 0, transparent 0deg, rgba(255,250,215,.07) 7deg, rgba(242,226,5,.05) 10deg, transparent 18deg);
+  opacity: var(--room, 0); transition: opacity .4s ease; }
+.bg-room .s1 { left: -10%; --r0: -16deg; --r1: 14deg; }
+.bg-room .s2 { right: -15%; --r0: 18deg; --r1: -12deg; animation-delay: -4.5s; }
+
+/* Vinilo gigante: gira solo y "scratchea" al hacer scroll */
+.bg-vinyl { position: fixed; z-index: -1; top: 50%; right: -60vmin; width: 120vmin; aspect-ratio: 1; translate: 0 -50%; pointer-events: none; opacity: .7; }
+.bg-vinyl .scratch, .bg-vinyl .platter { position: absolute; inset: 0; border-radius: 50%; will-change: transform; }
+.bg-vinyl .platter {
+  background:
+    radial-gradient(circle, transparent 0 37%, rgba(0,0,0,.5) 37.4% 38.2%, transparent 38.6% 62%, rgba(0,0,0,.45) 62.4% 63%, transparent 63.4% 80%, rgba(0,0,0,.45) 80.4% 81%, transparent 81.4%),
+    repeating-radial-gradient(circle, rgba(243,238,230,.05) 0 1px, transparent 1px 3.5px),
+    radial-gradient(circle, #1c181e 0 70%, #161318 100%);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.04), 0 0 160px rgba(0,0,0,.75);
+}
+/* Etiqueta con el logo: es lo que deja ver el giro */
+.bg-vinyl .lbl { position: absolute; inset: 35.5%; display: grid; place-items: center; border-radius: 50%; overflow: hidden;
+  background: radial-gradient(circle, #121013 0 5%, #2b2611 5.6% 100%); box-shadow: inset 0 0 0 2px rgba(0,0,0,.4); }
+.bg-vinyl .lbl img { width: 74%; height: auto; opacity: .5; }
+.bg-vinyl::after { content: ""; position: absolute; inset: 0; border-radius: 50%;
+  background: conic-gradient(from 35deg, transparent 0 9%, rgba(255,255,255,.06) 13%, transparent 18% 55%, rgba(255,255,255,.05) 61%, transparent 67%); }
+@media (max-width: 767px) { .bg-vinyl { right: -67vmin; width: 134vmin; opacity: .55; } }
+
+@media (prefers-reduced-motion: no-preference) {
+  .ready .bg-room .glow { animation: beat .968s cubic-bezier(.2,.7,.3,1) infinite; }   /* 124 BPM, cada dos tiempos */
+  .ready .bg-room .sweep { animation: sweep 9s ease-in-out infinite alternate; }
+  .ready .bg-vinyl .platter { animation: spin 24s linear infinite; }
+  @supports (animation-timeline: scroll()) {
+    .bg-vinyl .scratch { animation: scratch linear both; animation-timeline: scroll(root); }
+  }
+}
+@keyframes beat { 0% { transform: scale(1.06); } 100% { transform: scale(1); } }
+@keyframes scratch { to { transform: rotate(540deg); } }
+
+/* Vídeos con el mismo tratamiento de color */
+.poster { filter: sepia(.22) saturate(.78) hue-rotate(-6deg) contrast(1.05) brightness(.9); }
+
+/* Mesas: un leve viñeteado para que no brillen tanto */
+.plate { box-shadow: inset 0 -50px 70px -50px rgba(0,0,0,.14); }

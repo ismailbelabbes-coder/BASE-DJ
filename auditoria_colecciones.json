@@ -1,0 +1,852 @@
+{
+ "total": 313,
+ "sin_migas": 0,
+ "con_migas": 109,
+ "errores": [
+  [
+   "conexiones-audio",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "conexiones-imagen-hdmi-vga",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-conexiones-audio-conexiones-conexiones-empotrables-pared",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-conexiones-audio-conexiones-conexiones-usb",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "electricidad-electronica-varios-informatica-varios-informatica-conexiones-y-adaptadores",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-altavoces-audio-altavoces-repuestos-altavoces-audio-altavoces-repuestos-altavoces-construccion-altavoces",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "controladores-tiras-led",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-controladores-dj",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "controladores-dj-simples-fx",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "controladores-dj-sin-tarjeta-sonido",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "iluminacion-iluminacion-controladores-dmx",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "controladores-midi",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "convertidores-y-matrices-de-video",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "correa-repuesto-giradiscos",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "megafonia-y-seguridad-covid-19-productos",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "imagen-imagen-camaras-aventura",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-giradiscos-audio-giradiscos-capsulas-agujas-accesorios",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-controladores-dj-audio-controladores-dj-flight-case-y-maletas-para-controladores-midi-dj-decksaver",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "complementos-halloween-inicio-complementos-halloween-decoracion",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "destornilladores",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "electricidad-electronica-varios-electronica-varios-electronica-herramientas-varios-electronica-herramientas-destornilladores-destornilladores-estrella-o-phillips",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "electricidad-electronica-varios-electronica-varios-electronica-herramientas-varios-electronica-herramientas-destornilladores-destronilladores-torx",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "diodos",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-mesas-de-mezclas-audio-mesas-de-mezclas-directo",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "disipador-de-calor-aluminio",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "imagen-imagen-dvd-y-karaoke",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "iluminacion-iluminacion-efectos-iluminacion-led",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "electricidad",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "electricidad-electronica",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-soluciones-audio-audio-soluciones-audio-equalizadores-procesadores",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-altavoces-audio-altavoces-activos-amplificados-audio-altavoces-activos-amplificados-equipo-pa",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-amplificadores-cd-radio-audio-equipos-hifi-equipos-estilo-retro",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-amplificadores-cd-radio-audio-equipos-hifi-equipos-ipod-iphone",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-etapas-de-potencia",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-etapas-de-potencia-audio-etapas-de-potencia-etapas-de-potencia",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "etapas-potencia-digitales",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "etapas-potencia-multicanal",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "figuras-y-coleccionismo-figuras-anime",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "figuras-y-coleccionismo",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "electricidad-electronica-varios-electronica-filtros-antiparasitarios",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "filtros-y-divisores-altavoces",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-controladores-dj-audio-controladores-dj-flight-case-y-maletas-para-controladores-midi-dj-flight-case-madera",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-controladores-dj-audio-controladores-dj-flight-case-y-maletas-para-controladores-midi-dj",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "laser-dj-inicio-laser-dj-focos",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "iluminacion-iluminacion-focos-par-focos-a-bateria",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "iluminacion-iluminacion-focos-par",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "imagen-fotografia",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "fuentes-alimentacion",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "electricidad-electronica-varios-electronica-varios-electronica-alimentadores-fuentes-alimentacion-fuentes-alimentacion-industriales",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "fuentes-alimentacion-tiras-led",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "electricidad-electronica-varios-electricidad-fundas-termoretractil",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "figuras-y-coleccionismo-funko-my-hero-academia",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "figuras-y-coleccionismo-funko-star-wars",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "fusibles-cristal",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "fusibles-termicos",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "fusibles-termicos-cristal",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-autorradios-fusibles-y-portafusibles",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-giradiscos",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "giradiscos-traccion-directa",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "giradiscos-usb",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "grabadores-digitales",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "electricidad-electronica-varios-electronica-varios-electronica-herramientas",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-home-studio",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-autorradios-iluminacion-tuning",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "iluminacion",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "iluminacion-arquitectural",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "iluminacion-decorativa",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "imagen",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-auriculares-in-ear-auriculares",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "electricidad-electronica-varios-informatica",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "inicio",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "electricidad-electronica-varios-electronica-varios-electronica-herramientas-varios-electronica-herramientas-instrumentos-de-medida",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "interfaces-de-audio-tarjetas-de-sonido",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-auriculares-audio-auriculares-intrauditivos",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "iluminacion-iluminacion-laser-discotecas",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "led-5mm",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "electricidad-electronica-varios-electronica-varios-electronica-linternas-leds",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "loop-stations",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "luz-negra-uv",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "iluminacion-iluminacion-lamparas",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "iluminacion-iluminacion-lamparas-iluminacion-lamparas-lamparas-par",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-rack-audio-rack-madera",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "electricidad-electronica-varios-electronica-varios-electronica-herramientas-maleta-herramientas",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "imagen-fotografia-maletas-camaras",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-controladores-dj-audio-controladores-dj-flight-case-y-maletas-para-controladores-midi-dj-eva-hardcase",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-accesorios-dj-audio-accesorios-dj-maletas-para-vinilos-y-cds",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-giradiscos-maletas-vinilos",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "imagen-mando-a-distancia-repuesto-televisores",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-soluciones-audio-audio-soluciones-audio-mangueras-de-escenario",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-conexiones-audio-conexiones-mangueras-escenario",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "electricidad-electronica-varios-electronica-material-didactico-colegios",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "megafonia-y-seguridad-megafonia-y-seguridad-megafonos",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "megafonia-y-seguridad-megafonia-y-seguridad-equipos-moviles-coche",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "megafonia-y-seguridad-megafonia-y-seguridad-tiendas-oficinas",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "megafonia-y-seguridad",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "repuestos-altavoces-membranas-y-tweeters-membranas",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-altavoces-audio-altavoces-repuestos-altavoces-audio-altavoces-repuestos-altavoces-membranas-y-tweeters",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "memorias-usb",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "mesas-mezclas-2-canales",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-mesas-de-mezclas-audio-mesas-de-mezclas-mesa-de-3-canales",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "mesas-mezclas-4-canales",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-mesas-de-mezclas-audio-mesas-de-mezclas-mesa-de-5-canales-o-mas",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-mesas-de-mezclas",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-rack-audio-rack-metalicos",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "mezclador-por-zonas",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "micro-auriculares-walkies",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "electricidad-electronica-varios-electronica-micropulsadores",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-microfonos-audio-microfonos-microfonos-usb",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-microfonos",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "microfonos-con-cable",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "microfonos-conferencia-cisne",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-microfonos-audio-microfonos-diademas-microfonos",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "megafonia-y-seguridad-microfonos-de-megafonia",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "microfonos-de-sobremesa",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-microfonos-audio-microfonos-microfonos-estudio",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-microfonos-microfonos-inalambricos",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "microfonos-para-camaras",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "electricidad-electronica-varios-informatica-microfonos-y-auriculares",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "microfonos-para-moviles-tablets",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-altavoces-audio-altavoces-activos-amplificados-monitores-de-escenario",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-home-studio-audio-altavoces-monitores-de-estudio",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "electricidad-electronica-varios-electronica-varios-electronica-motores",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "maquinas-de-humo-y-efectos",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "novedades",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "pads-midi",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "imagen-imagen-pantallas-de-proyeccion-imagen-pantallas-de-proyeccion-pantalla-electricas",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "imagen-imagen-pantallas-de-proyeccion-imagen-pantallas-de-proyeccion-pantallas-16-9",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "imagen-imagen-pantallas-de-proyeccion",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "imagen-imagen-pantallas-de-proyeccion-imagen-pantallas-de-proyeccion-pantallas-manuales-4-3",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "imagen-imagen-pantallas-de-proyeccion-imagen-pantallas-de-proyeccion-pantallas-retroproyeccion",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-altavoces-audio-altavoces-pasivos",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "altavoces-pasivos-15-pulgadas",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-instrumentos-musicales-pedales-guitarra-looper",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "electricidad-electronica-varios-electronica-varios-electronica-pilas-baterias-porta-pilas-pilas-alcalinas",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "pilas-de-boton",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "pilas-baterias-porta-pilas",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "electricidad-electronica-varios-electronica-varios-electronica-pilotos-led-interruptores",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "electricidad-electronica-varios-electronica-varios-electronica-herramientas-varios-electronica-herramientas-destornilladores-planos-o-pala",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "poleas-motores-audio-video",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "electricidad-electronica-varios-electronica-pontenciometros-ajustable",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "frontpage",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "porta-fusibles",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-controladores-dj-audio-controladores-dj-programas",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "puentes-rectificadores",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "megafonia-y-seguridad-covid-19-productos-purificadores-de-aire",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-rack",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-amplificadores-cd-radio-audio-equipos-hifi-radios-radio-portatil-o-bolsillo",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-amplificadores-cd-radio-audio-equipos-hifi-radios",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-conexiones-receptor-transmisor-bluetooth",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "imagen-imagen-receptores-tdt-y-satelite",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "base-dj-regalos",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "regletas-alargadores-corriente",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "reles",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-amplificadores-cd-radio-audio-equipos-hifi-cd-y-dvd",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "altavoces-repuesto-12-pulgadas-30cm",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-altavoces-audio-altavoces-repuestos-altavoces",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-cds-profesionales-audio-cds-profesionales-repuestos-cd",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "repuestos-krk-monitores-estudio",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "repuestos-mezcladores",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "repuestos-amplificadores",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "iluminacion-iluminacion-maquinas-de-humo-y-efectos-iluminacion-maquinas-de-humo-y-efectos-repuestos-para-maquinas-de-efectos",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "resistencias",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "electricidad-electronica-varios-electronica-varios-electronica-resistencias-resistencias-de-potencia",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "resistencia-ntc",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "megafonia-y-seguridad-megafonia-y-seguridad-senales-luminosas",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "sintetizadores",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "soldadores",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-soluciones-audio",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "imagen-imagen-soportes-pantallas-leds",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "imagen-soportes-proyectores",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-controladores-dj-audio-controladores-dj-soportes-y-accesorios",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-altavoces-audio-altavoces-soportes-accesorios",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "iluminacion-iluminacion-strobo-flash",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-altavoces-audio-altavoces-subwoofer-sub-activos",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-altavoces-audio-altavoces-repuestos-altavoces-audio-altavoces-repuestos-altavoces-baja-y-media-frecuencia-subwoofer",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-altavoces-audio-altavoces-subwoofer",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "subwoofers-pasivos",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-altavoces-audio-altavoces-repuestos-altavoces-audio-altavoces-repuestos-altavoces-suspension-de-altavoces-audio-altavoces-repuestos-altavoces-suspension-de-altavoces-suspension-de-espuma",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-altavoces-audio-altavoces-repuestos-altavoces-audio-altavoces-repuestos-altavoces-suspension-de-altavoces",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-altavoces-audio-altavoces-repuestos-altavoces-audio-altavoces-repuestos-altavoces-suspension-de-altavoces-audio-altavoces-repuestos-altavoces-suspension-de-altavoces-suspension-de-goma",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-altavoces-audio-altavoces-repuestos-altavoces-audio-altavoces-repuestos-altavoces-suspension-de-altavoces-audio-altavoces-repuestos-altavoces-suspension-de-altavoces-suspension-de-tela",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-altavoces-audio-altavoces-repuestos-altavoces-tapeta-guarda-polvo",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "controladores-dj-inicio-controladores-dj-targetas-de-sonido",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "iluminacion-iluminacion-truss-soportes-tarimas-escenarios",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "teclados-midi-usb",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "iluminacion-iluminacion-tiras-led-tira-leds-efecto-neon",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "iluminacion-iluminacion-tiras-led-iluminacion-tiras-led-tiras-de-led-para-coche",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "tiras-led",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "tiras-led-exterior",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "tiras-led-rgb-multicolor",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-giradiscos-audio-giradiscos-traccion-por-correa",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "transistores-triac",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "iluminacion-iluminacion-truss-soportes",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-altavoces-audio-altavoces-repuestos-altavoces-audio-altavoces-repuestos-altavoces-membranas-y-tweeters-tweeters",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "varistores",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "electricidad-electronica-varios-informatica-ventilador-blower-pc",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "ventiladores-12v",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "ventiladores-220v",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "ventiladores-24v",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "ventiladores-5v",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "electricidad-electronica-varios-electronica-ventiladores-5v-12v-220v-y-24v",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "audio-y-sonido-audio-controladores-dj-audio-controladores-dj-vinilos-de-codigo-de-tiempo",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "megafonia-y-seguridad-megafonia-y-seguridad-walkies-emisoras-megafonia-y-seguridad-walkies-emisoras-walkie-talkie",
+   "HTTP Error 429: Too Many Requests"
+  ],
+  [
+   "megafonia-y-seguridad-megafonia-y-seguridad-walkies-emisoras",
+   "HTTP Error 429: Too Many Requests"
+  ]
+ ],
+ "vacias": [
+  "iluminacion-iluminacion-tiras-led-iluminacion-tiras-led-accesorios-tiras-leds",
+  "electricidad-electronica-varios-electricidad-bridas-de-nylon",
+  "complementos-halloween-inicio-complementos-halloween-decoracion",
+  "audio-y-sonido-amplificadores-cd-radio-audio-equipos-hifi-equipos-ipod-iphone",
+  "audio-y-sonido-audio-soluciones-audio-audio-soluciones-audio-mangueras-de-escenario",
+  "frontpage",
+  "audio-y-sonido-audio-controladores-dj-audio-controladores-dj-programas",
+  "audio-y-sonido-audio-cds-profesionales-audio-cds-profesionales-repuestos-cd",
+  "audio-y-sonido-audio-altavoces-audio-altavoces-repuestos-altavoces-audio-altavoces-repuestos-altavoces-baja-y-media-frecuencia-subwoofer",
+  "controladores-dj-inicio-controladores-dj-targetas-de-sonido",
+  "electricidad-electronica-varios-informatica-ventilador-blower-pc"
+ ],
+ "urls_largas": 124,
+ "titulos_duplicados": [
+  "conexiones"
+ ],
+ "titulos_raros": [
+  "Adaptadores  convertidores",
+  "Con  Tarjeta de Sonido",
+  "Micròfonos Usb",
+  "Targetas De Sonido"
+ ],
+ "ej_sin_migas": [],
+ "ej_largas": [
+  "audio-y-sonido-audio-altavoces-audio-altavoces-repuestos-altavoces-audio-altavoces-repuestos-altavoces-baja-y-media-frecuencia-1-pulgada",
+  "audio-y-sonido-audio-altavoces-audio-altavoces-activos-amplificados-audio-altavoces-activos-amplificados-10-pulgadas-25cm",
+  "audio-y-sonido-audio-altavoces-audio-altavoces-repuestos-altavoces-audio-altavoces-repuestos-altavoces-baja-y-media-frecuencia-audio-altavoces-repuestos-altavoces-baja-y-media-frecuencia-12-pulgadas-30-cm"
+ ]
+}

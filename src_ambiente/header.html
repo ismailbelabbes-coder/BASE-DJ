@@ -1,0 +1,56 @@
+<header class="sticky top-0 z-30 border-b border-white/[0.07] bg-ink/85 backdrop-blur-xl">
+  <div class="mx-auto flex h-[68px] max-w-page items-center justify-between gap-4 px-4 md:px-8">
+    <a href="index.html" class="shrink-0" aria-label="BaseDJ, inicio">
+      <img src="img/logo-t.webp" alt="" width="360" height="184" class="h-11 w-auto">
+    </a>
+    <nav aria-label="Principal" class="hidden items-center gap-8 text-[14px] text-mute lg:flex">
+      <a class="transition hover:text-cream" href="https://www.basedj.es/collections/audio-y-sonido">Sonido y DJ</a>
+      <a class="transition hover:text-cream" href="https://www.basedj.es/collections/iluminacion">Iluminación</a>
+      <a class="transition hover:text-cream" href="https://www.basedj.es/collections/cabinas-dj-plegables-mesas-portatiles-eventos">Cabinas</a>
+      <a class="transition hover:text-cream" href="https://www.basedj.es/collections/base-dj-rebajas">Ofertas</a>
+    </nav>
+    <div class="flex items-center gap-1">
+      <button type="button" data-panel="search" aria-expanded="false" aria-controls="panel" class="grid h-11 w-11 place-items-center rounded-full text-mute transition hover:text-cream" aria-label="Buscar"><i data-i="search" class="ico !h-5 !w-5"></i></button>
+      <a href="#whatsapp" data-wa="Hola BaseDJ, quería hacer una consulta." class="btn-glass mx-1 !px-4 !py-2.5" aria-label="Pide consejo por WhatsApp"><i data-i="whatsapp" class="ico"></i><span class="hidden sm:inline">Pide consejo</span></a>
+      <a href="https://www.basedj.es/cart" class="relative grid h-11 w-11 place-items-center rounded-full text-mute transition hover:text-cream" aria-label="Carrito"><i data-i="shopping-bag" class="ico !h-5 !w-5"></i><span id="cart-count" class="absolute right-0.5 top-0.5 hidden h-5 min-w-5 place-items-center rounded-full bg-volt px-1 text-[11px] font-bold text-ink">0</span></a>
+      <button type="button" data-panel="menu" aria-expanded="false" aria-controls="panel" class="grid h-11 w-11 place-items-center rounded-full text-cream lg:hidden" aria-label="Menú"><i data-i="menu" class="ico !h-6 !w-6"></i></button>
+    </div>
+  </div>
+  <div class="wave" aria-hidden="true"><i></i></div>
+  <div id="panel" hidden class="border-t border-white/[0.07]">
+    <div class="mx-auto max-w-page px-4 pb-6 pt-5 md:px-8">
+      <form action="https://www.basedj.es/search" method="get" role="search" class="flex gap-2">
+        <label for="q" class="sr-only">Buscar en la tienda</label>
+        <input id="q" name="q" type="search" autocomplete="off" placeholder="Marca o modelo" class="min-w-0 flex-1 rounded-full border border-white/15 bg-white/[0.06] px-5 py-3 text-[16px] text-cream placeholder:text-mute focus:border-volt focus:outline-none">
+        <input type="hidden" name="type" value="product">
+        <button class="btn-volt !px-5">Buscar</button>
+      </form>
+      <nav data-menu aria-label="Menú" class="mt-5 grid grid-cols-2 gap-2 text-[15px] font-medium lg:hidden">
+        <a class="rounded-[14px] border border-white/10 px-4 py-3.5" href="https://www.basedj.es/collections/audio-y-sonido-audio-controladores-dj">Controladoras DJ</a>
+        <a class="rounded-[14px] border border-white/10 px-4 py-3.5" href="https://www.basedj.es/collections/altavoces-activos-amplificados">Altavoces</a>
+        <a class="rounded-[14px] border border-white/10 px-4 py-3.5" href="https://www.basedj.es/collections/audio-y-sonido-audio-microfonos">Micrófonos</a>
+        <a class="rounded-[14px] border border-white/10 px-4 py-3.5" href="https://www.basedj.es/collections/audio-y-sonido-audio-auriculares-audio-auriculares-dj">Auriculares DJ</a>
+        <a class="rounded-[14px] border border-white/10 px-4 py-3.5" href="https://www.basedj.es/collections/iluminacion">Iluminación</a>
+        <a class="rounded-[14px] border border-white/10 px-4 py-3.5" href="https://www.basedj.es/collections/cabinas-dj-plegables-mesas-portatiles-eventos">Cabinas DJ</a>
+        <a class="rounded-[14px] border border-white/10 px-4 py-3.5" href="https://www.basedj.es/collections/audio-y-sonido">Todo el sonido</a>
+        <a class="rounded-[14px] border border-volt/40 px-4 py-3.5 text-volt" href="https://www.basedj.es/collections/base-dj-rebajas">Ofertas</a>
+      </nav>
+    </div>
+  </div>
+</header>
+<script>
+(() => {
+  const panel = document.getElementById('panel'), btns = document.querySelectorAll('[data-panel]');
+  const menu = panel.querySelector('[data-menu]');
+  let open = null;
+  const set = which => {
+    open = which;
+    panel.hidden = !which;
+    menu.style.display = which === 'search' ? 'none' : '';
+    btns.forEach(b => b.setAttribute('aria-expanded', b.dataset.panel === which));
+    if (which === 'search') panel.querySelector('input[type=search]').focus();
+  };
+  btns.forEach(b => b.addEventListener('click', () => set(open === b.dataset.panel ? null : b.dataset.panel)));
+  addEventListener('keydown', e => { if (e.key === 'Escape' && open) set(null); });
+})();
+</script>

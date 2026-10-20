@@ -1,0 +1,100 @@
+[
+ {
+  "handle": "pioneer-dj-ddj-flx2",
+  "title": "Pioneer DJ DDJ-FLX2 — Controlador DJ 2 Canales USB Rekordbox Serato",
+  "vendor": "AlphaTheta",
+  "type": "Controladores DJ",
+  "price": "179.00",
+  "compare": null,
+  "imgs": [
+   "img/p0_0.webp",
+   "img/p0_1.webp",
+   "img/p0_2.webp"
+  ],
+  "desc": "El Pioneer DJ DDJ-FLX2 es un controlador DJ portátil de 2 canales alimentado por USB, diseñado para nuevos DJs que buscan un equipo profesional a un precio accesible. Compatible con los principales servicios de streaming musical, te permite mezclar con tu música favorita desde el primer momento. Características Principales Controlador portátil de 2 canales Alimentación por USB — sin cables de corriente Compatible con servicios de streaming musical Diseño profesional compacto y ligero Jog wheels, pads y mezclador integrados Class compliant — no requiere instalación de drivers Software Compatible rekordbox para PC/Mac rekordbox para iOS/Android Serato DJ Lite (incluido) Serato DJ Pro (licencia/suscripción no incluida) Entradas y Salidas Entradas: MIC x 1 (miniconector estéreo 3,5mm) Salidas: MASTER x 1 (miniconector estéreo 3,5mm) / HEADPHONES x 1 (miniconector estéreo 3,5mm) USB: Tipo C x"
+ },
+ {
+  "handle": "reloop-rp-5000-mk4-giradiscos-dj-traccion-directa",
+  "title": "Reloop RP-5000 MK4 | Giradiscos DJ Tracción Directa con Serato DJ",
+  "vendor": "Reloop",
+  "type": "Giradiscos",
+  "price": "384.00",
+  "compare": null,
+  "imgs": [
+   "img/p1_0.webp"
+  ],
+  "desc": "Misma sensación, pero más potencia. El Reloop RP-5000 MK4 lleva la tradición de los tocadiscos clásicos de Reloop a un nuevo nivel. Motor rediseñado con acciona"
+ },
+ {
+  "handle": "10291-ecler-warm2-mezclador-dj-2-canales",
+  "title": "Ecler WARM2 - Mezclador DJ 2 Canales con Aislador 3 Bandas y Potenciómetros Alps",
+  "vendor": "Ecler",
+  "type": "Mesa de 2 Canales",
+  "price": "645.00",
+  "compare": null,
+  "imgs": [
+   "img/p2_0.webp"
+  ],
+  "desc": "Ecler WARM2 — Mezclador DJ de 2 canales de referencia El Ecler WARM2 es un mezclador DJ de 2 canales de gama alta, fabricado en España, que combina un diseño el"
+ },
+ {
+  "handle": "krk-kreate-8-monitor-estudio-8-bluetooth-eq",
+  "title": "KRK Kreate 8 — Monitor de Estudio 8\" Bluetooth con EQ",
+  "vendor": "KRK",
+  "type": "Monitores Estudio",
+  "price": "199.00",
+  "compare": null,
+  "imgs": [
+   "img/p3_0.webp"
+  ],
+  "desc": "El KRK Kreate 8 es la nueva generación de monitores de estudio de 8\" y 2 vías con Bluetooth, diseñado para músicos, productores y creadores de contenido que exi"
+ },
+ {
+  "handle": "beamz-showbar-go-edge-barra-con-4-cabezas-moviles-y-barra-led-estroboscopica",
+  "title": "BeamZ ShowBar GO Edge - Barra con 4 Cabezas Móviles y Barra LED/Estroboscópica",
+  "vendor": "BeamZ",
+  "type": "Efectos Iluminación LED",
+  "price": "629.00",
+  "compare": null,
+  "imgs": [
+   "img/p4_0.webp"
+  ],
+  "desc": "La BeamZ ShowBar GO Edge es un sistema de iluminación todo en uno de la serie ShowBar GO, diseñado para elevar cualquier evento con potentes efectos LED. Combin"
+ },
+ {
+  "handle": "beamz-showbar-go-glow-moving-heads-derby-par-strobo",
+  "title": "BeamZ ShowBar GO Glow | Moving Heads, Derby, PAR y Strobo DMX",
+  "vendor": "beamZ",
+  "type": "Iluminación DJ",
+  "price": "529.00",
+  "compare": null,
+  "imgs": [
+   "img/p5_0.webp"
+  ],
+  "desc": "El BeamZ ShowBar GO Glow es un sistema de iluminación todo en uno que combina cabezas móviles, efectos Derby, PAR y estroboscopíco en un único equipo compacto y"
+ },
+ {
+  "handle": "pack-halloween-uv-humo-liquido-1l-strobo-st60",
+  "title": "Pack Halloween UV 100 W + Humo 400 W + Líquido 1 L + Strobo ST-60",
+  "vendor": "BaseDJ",
+  "type": "Pack de iluminación y efectos",
+  "price": "129.00",
+  "compare": null,
+  "imgs": [
+   "img/p6_0.webp"
+  ],
+  "desc": "Combina luz negra, humo e iluminación estroboscópica para ambientar tu fiesta de Halloween. Este pack reúne cuatro artículos, una unidad de cada uno. Qué incluy"
+ },
+ {
+  "handle": "vonyx-dbf105-cabina-dj-plegable-pro-quick-1m-licra",
+  "title": "Vonyx DBF105 — Cabina DJ Plegable Pro Quick 1m con Fundas Licra",
+  "vendor": "Vonyx",
+  "type": "Cabinas DJ",
+  "price": "195.00",
+  "compare": null,
+  "imgs": [
+   "img/p7_0.webp"
+  ],
+  "desc": "Cabina DJ Vonyx DBF105 Plegable Pro Quick - 1m Ancho La Vonyx DBF105 es una cabina de DJ plegable, robusta y ligera, diseñada para DJs móviles, eventos, bodas o"
+ }
+]

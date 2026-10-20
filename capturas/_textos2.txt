@@ -1,0 +1,78 @@
+Almohadillas
+Las que se pelan o se agrietan con el uso.
+Cables de repuesto para auriculares DJ y de estudio.
+Tweeter y membrana
+Si ya no suenan los agudos, suele ser la membrana.
+Altavoces de graves y medios de repuesto, de 2 a 18 pulgadas.
+Speakon, jack, XLR y más conectores profesionales.
+Controladora
+Faders de canal
+Cuando el volumen salta o no responde bien.
+El fader horizontal que mezcla entre platos.
+Alimentación
+Alimentadores y fuentes para tu equipo.
+Aguja y cápsula
+Si suena apagado o con ruido, cambia la aguja.
+Si el plato no gira a su velocidad.
+), fig = document.getElementById(
+), panel = document.getElementById(
+);
+  const keys = Object.keys(DESP);
+  keys.forEach((k, i) => {
+    const b = document.createElement(
+);
+    b.type = 
+ + k; b.textContent = DESP[k].label;
+    b.className = 
+;
+    b.addEventListener(
+, () => show(k));
+    b.addEventListener(
+, e => {
+      const d = e.key === 
+ ? 1 : e.key === 
+ ? -1 : 0;
+      if (d) { const n = keys[(i + d + keys.length) % keys.length]; show(n); document.getElementById(
+ + n).focus(); }
+    });
+    tabs.append(b);
+  });
+  function pick(k, j) {
+    const p = DESP[k].parts[j];
+    fig.querySelectorAll(
+).forEach((s, n) => s.setAttribute(
+, n === j));
+    panel.querySelectorAll(
+).forEach((s, n) => s.classList.toggle(
+, n === j));
+    const card = panel.querySelector(
+);
+    card.innerHTML = `<p class="text-[22px] font-bold">${p[2]}</p><p class="mt-2 text-[16px] leading-relaxed text-mute">${p[3]}</p>
+      <a href="${SHOP + p[4]}" class="btn-volt mt-5">Ver repuestos</a>`;
+    card.classList.remove(
+); void card.offsetWidth; card.classList.add(
+);
+  }
+  function show(k) {
+    const d = DESP[k];
+    tabs.querySelectorAll(
+).forEach(b => { const on = b.id === 
+ + k; b.setAttribute(
+, on); b.tabIndex = on ? 0 : -1; });
+    panel.setAttribute(
+ + k);
+    fig.innerHTML = `<svg viewBox="0 0 400 310" class="w-full text-cream/70" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d.svg}</svg>` +
+      d.parts.map((p, j) => `<button type="button" class="spot" style="left:${p[0] / 4}%;top:${p[1] / 3.1}%" aria-label="${p[2]}"><span>${j + 1}</span></button>`).join(
+);
+    panel.innerHTML = `<ol class="grid gap-2">${d.parts.map((p, j) => `<li><button type="button" data-part class="flex w-full items-center gap-3 rounded-[6px] border border-white/10 px-4 py-3 text-left text-[16px] font-medium transition hover:border-volt/60"><span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-volt/15 text-[13px] font-bold text-volt">${j + 1}</span>${p[2]}</button></li>`).join(
+)}</ol>
+      <div id="desp-card" class="mt-5 rounded-[6px] border border-volt/30 bg-booth p-5"></div>`;
+    fig.querySelectorAll(
+).forEach((s, j) => s.addEventListener(
+, () => pick(k, j)));
+    panel.querySelectorAll(
+).forEach((s, j) => s.addEventListener(
+, () => pick(k, j)));
+    pick(k, 0);
+  }
+  show(
