@@ -1,0 +1,271 @@
+diff --git a/sections/main-collection-banner.liquid b/sections/main-collection-banner.liquid
+index d9a5eb9..e735dff 100644
+--- a/sections/main-collection-banner.liquid
++++ b/sections/main-collection-banner.liquid
+@@ -13,7 +13,7 @@
+   <div class="collection-hero__inner page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+     <div class="collection-hero__text-wrapper">
+ 
+-      {% render 'breadcrumb-collection' %}
++      {% render 'breadcrumbs-basedj' %}
+ 
+       <h1 class="collection-hero__title">
+         <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
+diff --git a/sections/main-product.liquid b/sections/main-product.liquid
+index f9f782a..2691b74 100644
+--- a/sections/main-product.liquid
++++ b/sections/main-product.liquid
+@@ -75,7 +75,7 @@
+   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
+   <div class="page-width">
+     <div>
+-      {% render 'breadcrumb-product' %}
++      {% render 'breadcrumbs-basedj' %}
+     </div>
+     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
+       <div class="grid__item product__media-wrapper">
+diff --git a/snippets/breadcrumbs-basedj.liquid b/snippets/breadcrumbs-basedj.liquid
+new file mode 100644
+index 0000000..8f86b49
+--- /dev/null
++++ b/snippets/breadcrumbs-basedj.liquid
+@@ -0,0 +1,170 @@
++{%- comment -%}
++  Ruta de navegación (miga de pan) para BaseDJ.
++  - Construye la ruta a partir del menú principal (hasta 3 niveles), así no hay que corregir colección por colección.
++  - Termina siempre en la página actual (colección o producto).
++  - Si dos niveles seguidos se llaman igual (p. ej. "Electrónica » Electrónica"), muestra solo uno.
++  - Añade datos estructurados BreadcrumbList para que Google pueda mostrar la ruta en los resultados.
++  Uso: {% render 'breadcrumbs' %} en las plantillas de colección y de producto, en lugar de la ruta actual.
++  Otro menú: {% render 'breadcrumbs', menu: 'otro-menu' %}.
++{%- endcomment -%}
++{%- liquid
++  assign menu_handle = menu | default: 'main-menu'
++  assign nav = linklists[menu_handle]
++  assign target = ''
++  if template.name == 'collection'
++    assign target = collection.handle
++  elsif template.name == 'product'
++    if collection
++      assign target = collection.handle
++    else
++      assign target = product.collections.first.handle
++    endif
++  endif
++
++  # Más de 3 niveles (árbol heredado de PrestaShop): si la colección tiene el metacampo
++  # custom.padre (referencia a otra colección), la ruta sube por esa cadena, sin límite de menú.
++  assign base_col = collection
++  if template.name == 'product' and collection == blank
++    assign base_col = product.collections.first
++  endif
++  assign chain = ''
++  if template.name == 'product' and base_col != blank
++    assign chain = base_col.handle
++  endif
++  assign p = base_col.metafields.custom.padre.value
++  for i in (1..8)
++    if p == blank
++      break
++    endif
++    if chain == blank
++      assign chain = p.handle
++    else
++      assign chain = p.handle | append: ',' | append: chain
++    endif
++    assign p = p.metafields.custom.padre.value
++  endfor
++  assign chain = chain | split: ','
++
++  assign found = false
++  assign t1 = ''
++  assign u1 = ''
++  assign t2 = ''
++  assign u2 = ''
++  assign t3 = ''
++  assign u3 = ''
++
++  for a in nav.links
++    if a.type == 'collection_link' and a.object.handle == target
++      assign t1 = a.title
++      assign u1 = a.url
++      assign found = true
++      break
++    endif
++    for b in a.links
++      if b.type == 'collection_link' and b.object.handle == target
++        assign t1 = a.title
++        assign u1 = a.url
++        assign t2 = b.title
++        assign u2 = b.url
++        assign found = true
++        break
++      endif
++      for c in b.links
++        if c.type == 'collection_link' and c.object.handle == target
++          assign t1 = a.title
++          assign u1 = a.url
++          assign t2 = b.title
++          assign u2 = b.url
++          assign t3 = c.title
++          assign u3 = c.url
++          assign found = true
++          break
++        endif
++      endfor
++      if found
++        break
++      endif
++    endfor
++    if found
++      break
++    endif
++  endfor
++
++  # Página actual. Un producto fuera del menú cuelga de su primera colección.
++  if template.name == 'collection'
++    assign current = collection.title
++  else
++    assign current = product.title
++    if found == false and target != blank
++      assign t1 = collections[target].title
++      assign u1 = collections[target].url
++    endif
++  endif
++
++  # Quita niveles repetidos y el último nivel del menú si coincide con la página actual
++  if t2 == t1
++    assign t2 = t3
++    assign u2 = u3
++    assign t3 = ''
++    assign u3 = ''
++  endif
++  if t3 == t2
++    assign t3 = ''
++    assign u3 = ''
++  endif
++  assign cur_d = current | downcase
++  assign t1_d = t1 | downcase
++  assign t2_d = t2 | downcase
++  assign t3_d = t3 | downcase
++  if t3 != blank and t3_d == cur_d
++    assign t3 = ''
++  elsif t3 == blank and t2 != blank and t2_d == cur_d
++    assign t2 = ''
++  elsif t2 == blank and t1_d == cur_d
++    assign t1 = ''
++  endif
++-%}
++
++{%- if template.name == 'collection' or template.name == 'product' -%}
++  <nav class="breadcrumbs page-width" aria-label="Ruta de navegación">
++    <ol class="breadcrumbs__list">
++      <li class="breadcrumbs__item"><a href="{{ routes.root_url }}">Inicio</a></li>
++      {%- if chain.size > 0 -%}
++        {%- for h in chain -%}<li class="breadcrumbs__item"><a href="{{ collections[h].url }}">{{ collections[h].title | escape }}</a></li>{%- endfor -%}
++      {%- else -%}
++      {%- if t1 != blank -%}<li class="breadcrumbs__item"><a href="{{ u1 }}">{{ t1 | escape }}</a></li>{%- endif -%}
++      {%- if t2 != blank -%}<li class="breadcrumbs__item"><a href="{{ u2 }}">{{ t2 | escape }}</a></li>{%- endif -%}
++      {%- if t3 != blank -%}<li class="breadcrumbs__item"><a href="{{ u3 }}">{{ t3 | escape }}</a></li>{%- endif -%}
++      {%- endif -%}
++      <li class="breadcrumbs__item" aria-current="page">{{ current | escape }}</li>
++    </ol>
++  </nav>
++
++  {%- assign pos = 1 -%}
++  <script type="application/ld+json">
++    {
++      "@context": "https://schema.org",
++      "@type": "BreadcrumbList",
++      "itemListElement": [
++        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "{{ shop.url }}" }
++        {%- if chain.size > 0 -%}
++          {%- for h in chain -%}{%- assign pos = pos | plus: 1 -%},{ "@type": "ListItem", "position": {{ pos }}, "name": {{ collections[h].title | json }}, "item": "{{ shop.url }}{{ collections[h].url }}" }{%- endfor -%}
++        {%- else -%}
++        {%- if t1 != blank -%}{%- assign pos = pos | plus: 1 -%},{ "@type": "ListItem", "position": {{ pos }}, "name": {{ t1 | json }}, "item": "{{ shop.url }}{{ u1 }}" }{%- endif -%}
++        {%- if t2 != blank -%}{%- assign pos = pos | plus: 1 -%},{ "@type": "ListItem", "position": {{ pos }}, "name": {{ t2 | json }}, "item": "{{ shop.url }}{{ u2 }}" }{%- endif -%}
++        {%- if t3 != blank -%}{%- assign pos = pos | plus: 1 -%},{ "@type": "ListItem", "position": {{ pos }}, "name": {{ t3 | json }}, "item": "{{ shop.url }}{{ u3 }}" }{%- endif -%}
++        {%- endif -%}
++        {%- assign pos = pos | plus: 1 -%},{ "@type": "ListItem", "position": {{ pos }}, "name": {{ current | json }}, "item": "{{ shop.url }}{{ request.path }}" }
++      ]
++    }
++  </script>
++
++  <style>
++    .breadcrumbs { margin-top: 1.2rem; font-size: 1.4rem; }
++    .breadcrumbs__list { display: flex; flex-wrap: wrap; gap: .4rem; list-style: none; padding: 0; margin: 0; }
++    .breadcrumbs__item + .breadcrumbs__item::before { content: "»"; margin-right: .4rem; opacity: .6; }
++    .breadcrumbs__item a { color: inherit; text-decoration: none; }
++    .breadcrumbs__item a:hover { text-decoration: underline; }
++    .breadcrumbs__item[aria-current="page"] { opacity: .75; }
++  </style>
++{%- endif -%}
+diff --git a/snippets/header-drawer.liquid b/snippets/header-drawer.liquid
+index c2c1052..02805bc 100644
+--- a/snippets/header-drawer.liquid
++++ b/snippets/header-drawer.liquid
+@@ -17,6 +17,7 @@
+       </span>
+     </summary>
+     <div id="menu-drawer" class="gradient menu-drawer motion-reduce color-{{ section.settings.menu_color_scheme }}">
++      <template id="menu-drawer-tpl">
+       <div class="menu-drawer__inner-container">
+         <div class="menu-drawer__navigation-container">
+           <nav class="menu-drawer__navigation">
+@@ -290,6 +291,30 @@
+           </div>
+         </div>
+       </div>
++      </template>
++      <script>
++        (function () {
++          // El menú del móvil se monta al abrirlo por primera vez: la página carga con muchos menos elementos.
++          var hd = document.currentScript.closest('header-drawer');
++          var tpl = document.getElementById('menu-drawer-tpl');
++          function montar() {
++            if (!tpl) return;
++            var box = document.getElementById('menu-drawer');
++            box.appendChild(tpl.content.cloneNode(true));
++            tpl.remove();
++            tpl = null;
++            box.querySelectorAll('summary').forEach(function (s) {
++              s.addEventListener('click', hd.onSummaryClick.bind(hd));
++            });
++            box
++              .querySelectorAll('button:not(.localization-selector):not(.country-selector__close-button):not(.country-filter__reset-button)')
++              .forEach(function (b) {
++                b.addEventListener('click', hd.onCloseButtonClick.bind(hd));
++              });
++          }
++          hd.addEventListener('click', function (e) { if (e.target.closest('summary')) montar(); }, true);
++        })();
++      </script>
+     </div>
+   </details>
+ </header-drawer>
+diff --git a/snippets/product-thumbnail.liquid b/snippets/product-thumbnail.liquid
+index 519c378..bddc9c9 100644
+--- a/snippets/product-thumbnail.liquid
++++ b/snippets/product-thumbnail.liquid
+@@ -26,9 +26,13 @@
+ {% endcomment %}
+ 
+ {%- liquid
++  assign fetch_priority = 'auto'
+   unless lazy_load == false
+     assign lazy = 'lazy'
+   endunless
++  if lazy_load == false
++    assign fetch_priority = 'high'
++  endif
+ 
+   assign desktop_columns = 1
+   if desktop_layout == 'columns' and media_count > 1
+@@ -84,6 +88,7 @@
+         | image_tag:
+           class: image_class,
+           loading: lazy,
++          fetchpriority: fetch_priority,
+           sizes: sizes,
+           widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946'
+       }}

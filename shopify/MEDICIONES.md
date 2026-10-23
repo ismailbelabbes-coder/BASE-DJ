@@ -15,4 +15,15 @@ Elemento LCP: portada, imagen de la primera tarjeta de producto; colección, un 
 
 Qué pesa (portada): Google Tag Manager 154 KB, Avada (cookies) 108 KB, notify-me 98 KB y scripts de Shopify/pagos unos 500 KB. HTML de 82 KB comprimido y 2.455 elementos, por el menú completo.
 
-Cambios en la copia: miga de pan nueva (`snippets/breadcrumbs-basedj.liquid`) y prioridad alta para la imagen principal de la ficha (`snippets/product-thumbnail.liquid`). La prioridad en las tarjetas de portada no mejoró y se deshizo.
+## Tras aligerar el menú del móvil (mediana de 3 pasadas)
+
+| Página | Publicado | Copia final |
+|---|---|---|
+| Portada | 55 · LCP 4,4 s · TBT 658 ms | 56 · LCP 3,7 s · TBT 390 ms |
+| Colección | 84 · LCP 1,8 s · TBT 526 ms | 85 · LCP 1,7 s · TBT 458 ms |
+| Ficha | 69 · LCP 3,2 s · TBT 962 ms | 73 · LCP 2,3 s · TBT 848 ms |
+
+Elementos en la portada: 2.567 → 1.700. El menú del móvil se monta al abrirlo (probado: abre, submenús, volver y cerrar, sin errores).
+La nota apenas sube porque el bloqueo restante viene de las apps (GTM, Avada, notify-me) y de los scripts de pago, que no se han tocado.
+
+Cambios en la copia: miga de pan nueva (`snippets/breadcrumbs-basedj.liquid`) y prioridad alta para la imagen principal de la ficha (`snippets/product-thumbnail.liquid`). La prioridad en las tarjetas de portada no mejoró y se deshizo. Menú del móvil diferido (`snippets/header-drawer.liquid`). Diferencias completas en `cambios_tema.patch`.
