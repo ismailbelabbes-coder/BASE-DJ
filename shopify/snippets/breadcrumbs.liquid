@@ -45,6 +45,11 @@
   endfor
   assign chain = chain | split: ','
 
+  # Colecciones fuera del menú: el mapa basedj-padres (sacado de la jerarquía de PrestaShop que guarda
+  # el handle) indica de qué colección del menú cuelgan y las intermedias. Segunda pasada con ella.
+  assign extra_list = ''
+  assign menu_target = target
+  for pass in (1..2)
   assign found = false
   assign t1 = ''
   assign u1 = ''
@@ -54,14 +59,14 @@
   assign u3 = ''
 
   for a in nav.links
-    if a.type == 'collection_link' and a.object.handle == target
+    if a.type == 'collection_link' and a.object.handle == menu_target
       assign t1 = a.title
       assign u1 = a.url
       assign found = true
       break
     endif
     for b in a.links
-      if b.type == 'collection_link' and b.object.handle == target
+      if b.type == 'collection_link' and b.object.handle == menu_target
         assign t1 = a.title
         assign u1 = a.url
         assign t2 = b.title
@@ -70,7 +75,7 @@
         break
       endif
       for c in b.links
-        if c.type == 'collection_link' and c.object.handle == target
+        if c.type == 'collection_link' and c.object.handle == menu_target
           assign t1 = a.title
           assign u1 = a.url
           assign t2 = b.title
@@ -90,38 +95,72 @@
     endif
   endfor
 
+  if found or pass == 2 or chain.size > 0 or target == blank
+    break
+  endif
+  capture mapa
+    render 'basedj-padres'
+  endcapture
+  assign km = '|m:' | append: target | append: '='
+  assign ka = '|a:' | append: target | append: '='
+  if mapa contains km
+    assign extra_list = mapa | split: km | last | split: '|' | first
+  endif
+  # En la ficha, la colección del producto también va en la ruta
+  if template.name == 'product'
+    if mapa contains ka or mapa contains km
+      if extra_list == blank
+        assign extra_list = target
+      else
+        assign extra_list = extra_list | append: ',' | append: target
+      endif
+    endif
+  endif
+  if mapa contains ka
+    assign menu_target = mapa | split: ka | last | split: '|' | first
+  else
+    break
+  endif
+  endfor
+  assign extras = extra_list | split: ','
+
   # Página actual. Un producto fuera del menú cuelga de su primera colección.
   if template.name == 'collection'
     assign current = collection.title
   else
     assign current = product.title
-    if found == false and target != blank
+    if found == false and target != blank and extra_list == blank
       assign t1 = collections[target].title
       assign u1 = collections[target].url
     endif
   endif
 
-  # Quita niveles repetidos y el último nivel del menú si coincide con la página actual
-  if t2 == t1
+  # Quita niveles repetidos y el último nivel del menú si coincide con la página actual.
+  # Se comparan los títulos normalizados (handleize) para no fallar por tildes, espacios o mayúsculas.
+  assign k1 = t1 | handleize
+  assign k2 = t2 | handleize
+  assign k3 = t3 | handleize
+  if t2 != blank and k2 == k1
     assign t2 = t3
     assign u2 = u3
+    assign k2 = k3
+    assign t3 = ''
+    assign u3 = ''
+    assign k3 = ''
+  endif
+  if t3 != blank and k3 == k2
     assign t3 = ''
     assign u3 = ''
   endif
-  if t3 == t2
-    assign t3 = ''
-    assign u3 = ''
-  endif
-  assign cur_d = current | downcase
-  assign t1_d = t1 | downcase
-  assign t2_d = t2 | downcase
-  assign t3_d = t3 | downcase
-  if t3 != blank and t3_d == cur_d
-    assign t3 = ''
-  elsif t3 == blank and t2 != blank and t2_d == cur_d
-    assign t2 = ''
-  elsif t2 == blank and t1_d == cur_d
-    assign t1 = ''
+  assign kc = current | handleize
+  if extras.size == 0
+    if t3 != blank and k3 == kc
+      assign t3 = ''
+    elsif t3 == blank and t2 != blank and k2 == kc
+      assign t2 = ''
+    elsif t2 == blank and k1 == kc
+      assign t1 = ''
+    endif
   endif
 -%}
 
@@ -135,6 +174,7 @@
       {%- if t1 != blank -%}<li class="breadcrumbs__item"><a href="{{ u1 }}">{{ t1 | escape }}</a></li>{%- endif -%}
       {%- if t2 != blank -%}<li class="breadcrumbs__item"><a href="{{ u2 }}">{{ t2 | escape }}</a></li>{%- endif -%}
       {%- if t3 != blank -%}<li class="breadcrumbs__item"><a href="{{ u3 }}">{{ t3 | escape }}</a></li>{%- endif -%}
+      {%- for h in extras -%}<li class="breadcrumbs__item"><a href="{{ collections[h].url }}">{{ collections[h].title | escape }}</a></li>{%- endfor -%}
       {%- endif -%}
       <li class="breadcrumbs__item" aria-current="page">{{ current | escape }}</li>
     </ol>
@@ -153,6 +193,7 @@
         {%- if t1 != blank -%}{%- assign pos = pos | plus: 1 -%},{ "@type": "ListItem", "position": {{ pos }}, "name": {{ t1 | json }}, "item": "{{ shop.url }}{{ u1 }}" }{%- endif -%}
         {%- if t2 != blank -%}{%- assign pos = pos | plus: 1 -%},{ "@type": "ListItem", "position": {{ pos }}, "name": {{ t2 | json }}, "item": "{{ shop.url }}{{ u2 }}" }{%- endif -%}
         {%- if t3 != blank -%}{%- assign pos = pos | plus: 1 -%},{ "@type": "ListItem", "position": {{ pos }}, "name": {{ t3 | json }}, "item": "{{ shop.url }}{{ u3 }}" }{%- endif -%}
+        {%- for h in extras -%}{%- assign pos = pos | plus: 1 -%},{ "@type": "ListItem", "position": {{ pos }}, "name": {{ collections[h].title | json }}, "item": "{{ shop.url }}{{ collections[h].url }}" }{%- endfor -%}
         {%- endif -%}
         {%- assign pos = pos | plus: 1 -%},{ "@type": "ListItem", "position": {{ pos }}, "name": {{ current | json }}, "item": "{{ shop.url }}{{ request.path }}" }
       ]

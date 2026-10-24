@@ -27,3 +27,10 @@ Elementos en la portada: 2.567 → 1.700. El menú del móvil se monta al abrirl
 La nota apenas sube porque el bloqueo restante viene de las apps (GTM, Avada, notify-me) y de los scripts de pago, que no se han tocado.
 
 Cambios en la copia: miga de pan nueva (`snippets/breadcrumbs-basedj.liquid`) y prioridad alta para la imagen principal de la ficha (`snippets/product-thumbnail.liquid`). La prioridad en las tarjetas de portada no mejoró y se deshizo. Menú del móvil diferido (`snippets/header-drawer.liquid`). Diferencias completas en `cambios_tema.patch`.
+
+## Migas: colecciones fuera del menú (24/10/2026)
+
+- 97 colecciones salían solo «Inicio » colección» porque no están en el menú principal.
+- `mapa_padres.py` deduce el padre por el handle (jerarquía de PrestaShop) más una tabla a mano para los handles cortos, y genera `snippets/basedj-padres.liquid` (mapa dentro del tema, sin metacampos). Revisión: `shopify/padres_por_handle.csv`.
+- `breadcrumbs-basedj` sube por ese mapa y compara los títulos normalizados para quitar niveles repetidos («Electrónica » Electrónica»).
+- Repaso de las 313 en la copia (`verificar_migas.py` → `shopify/migas_final.csv`): todas terminan en su colección, cada nivel enlaza a una colección existente, 0 niveles repetidos (salvo la colección interna «Inicio»). Solo 11 quedan con «Inicio » colección», todas de primer nivel (Alquiler, Novedades, Regalos…).
