@@ -34,7 +34,7 @@ with sync_playwright() as p:
         if h in ESP and ruta != ESP[h]: prob.append('distinta de la esperada: ' + ESP[h])
         out.append({'coleccion': r['coleccion'], 'handle': h, 'ruta_antes': r['ruta_actual'], 'ruta_despues': ruta,
                     'niveles': len(textos), 'problemas': '; '.join(prob) or 'ok'})
-        if i % 25 == 0: print(i, ruta[:90], flush=True)
+        print(f'PROGRESO {i + 1}/{len(A)}', flush=True)
         time.sleep(1.5)
     b.close()
 with (ROOT / 'shopify' / 'migas_final.csv').open('w', newline='', encoding='utf-8-sig') as f:

@@ -11,7 +11,9 @@ paso = int(sys.argv[1]) if len(sys.argv) > 1 else 8
 out = []
 with sync_playwright() as p:
     b = p.chromium.launch(); pg = b.new_page(user_agent=UA)
-    for r in F[::paso]:
+    lista = F[::paso]
+    for i, r in enumerate(lista):
+        print(f'PROGRESO {i + 1}/{len(lista)}', flush=True)
         if int(r['niveles'] or 0) < 3: continue
         try:
             pg.goto(f"https://www.basedj.es/collections/{r['handle']}?preview_theme_id={TEMA}", wait_until='domcontentloaded', timeout=45000)
