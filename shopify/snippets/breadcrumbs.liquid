@@ -4,8 +4,9 @@
   - Termina siempre en la página actual (colección o producto).
   - Si dos niveles seguidos se llaman igual (p. ej. "Electrónica » Electrónica"), muestra solo uno.
   - Añade datos estructurados BreadcrumbList para que Google pueda mostrar la ruta en los resultados.
-  Uso: {% render 'breadcrumbs' %} en las plantillas de colección y de producto, en lugar de la ruta actual.
-  Otro menú: {% render 'breadcrumbs', menu: 'otro-menu' %}.
+  Uso: {% render 'rutas-basedj' %} en las plantillas de colección y de producto, en lugar de la ruta actual.
+  Otro menú: {% render 'rutas-basedj', menu: 'otro-menu' %}.
+  Necesita el snippet rutas-basedj-mapa (mapa de colecciones que no están en el menú; lo genera mapa_padres.py).
 {%- endcomment -%}
 {%- liquid
   assign menu_handle = menu | default: 'main-menu'
