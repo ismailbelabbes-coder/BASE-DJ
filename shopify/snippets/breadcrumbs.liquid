@@ -11,26 +11,37 @@
   assign menu_handle = menu | default: 'main-menu'
   assign nav = linklists[menu_handle]
   assign target = ''
+  capture mapa
+    render 'basedj-padres'
+  endcapture
   if template.name == 'collection'
     assign target = collection.handle
   elsif template.name == 'product'
     if collection
       assign target = collection.handle
     else
-      assign target = product.collections.first.handle
+      # Sin colección en la URL: la colección del producto con la ruta más larga (|d:handle=niveles| en el mapa)
+      assign best = 0
+      for c in product.collections
+        assign kd = '|d:' | append: c.handle | append: '='
+        if mapa contains kd
+          assign d = mapa | split: kd | last | split: '|' | first | plus: 0
+          if d > best
+            assign best = d
+            assign target = c.handle
+          endif
+        endif
+      endfor
+      if target == blank
+        assign target = product.collections.first.handle
+      endif
     endif
   endif
 
   # Más de 3 niveles (árbol heredado de PrestaShop): si la colección tiene el metacampo
   # custom.padre (referencia a otra colección), la ruta sube por esa cadena, sin límite de menú.
-  assign base_col = collection
-  if template.name == 'product' and collection == blank
-    assign base_col = product.collections.first
-  endif
+  assign base_col = collections[target]
   assign chain = ''
-  if template.name == 'product' and base_col != blank
-    assign chain = base_col.handle
-  endif
   assign p = base_col.metafields.custom.padre.value
   for i in (1..8)
     if p == blank
@@ -43,6 +54,9 @@
     endif
     assign p = p.metafields.custom.padre.value
   endfor
+  if template.name == 'product' and chain != blank
+    assign chain = chain | append: ',' | append: target
+  endif
   assign chain = chain | split: ','
 
   # Colecciones fuera del menú: el mapa basedj-padres (sacado de la jerarquía de PrestaShop que guarda
@@ -98,9 +112,6 @@
   if found or pass == 2 or chain.size > 0 or target == blank
     break
   endif
-  capture mapa
-    render 'basedj-padres'
-  endcapture
   assign km = '|m:' | append: target | append: '='
   assign ka = '|a:' | append: target | append: '='
   if mapa contains km
@@ -140,6 +151,25 @@
   assign k1 = t1 | handleize
   assign k2 = t2 | handleize
   assign k3 = t3 | handleize
+  # Si el menú repite el nombre pero enlaza a otra colección, se usa el título real de esa colección
+  if t2 != blank and k2 == k1
+    assign alt = u2 | split: '/' | last
+    assign alt = collections[alt].title
+    assign kalt = alt | handleize
+    if u2 != u1 and alt != blank and kalt != k1
+      assign t2 = alt
+      assign k2 = kalt
+    endif
+  endif
+  if t3 != blank and k3 == k2
+    assign alt = u3 | split: '/' | last
+    assign alt = collections[alt].title
+    assign kalt = alt | handleize
+    if u3 != u2 and alt != blank and kalt != k2
+      assign t3 = alt
+      assign k3 = kalt
+    endif
+  endif
   if t2 != blank and k2 == k1
     assign t2 = t3
     assign u2 = u3

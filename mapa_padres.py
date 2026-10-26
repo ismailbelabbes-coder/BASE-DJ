@@ -90,6 +90,11 @@ for h in sorted(T):
     if anchor: entradas.append(f'|a:{h}={anchor}')
     if extras: entradas.append(f'|m:{h}={",".join(extras)}')
 
+# Niveles medidos de cada colección (migas_final.csv): la ficha elige la colección más concreta
+fin = ROOT / 'shopify' / 'migas_final.csv'
+if fin.exists():
+    for r in csv.DictReader(fin.open(encoding='utf-8-sig'), delimiter=';'):
+        if int(r['niveles'] or 0) > 2: entradas.append(f"|d:{r['handle']}={r['niveles']}")
 with (ROOT / 'shopify' / 'padres_por_handle.csv').open('w', newline='', encoding='utf-8-sig') as f:
     w = csv.DictWriter(f, fieldnames=list(filas[0]), delimiter=';'); w.writeheader(); w.writerows(filas)
 snip = ('{%- comment -%}Generado por mapa_padres.py: |a:handle=colección del menú| y |m:handle=intermedias|. '
