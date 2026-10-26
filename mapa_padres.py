@@ -1,6 +1,6 @@
 """Deduce la colección padre de las colecciones que no están en el menú principal.
 Regla: el handle guarda la jerarquía de PrestaShop, así que el padre es la colección con el prefijo más largo.
-Las de handle corto van en MANUAL. Salida: shopify/snippets/basedj-padres.liquid (mapa dentro del tema)
+Las de handle corto van en MANUAL. Salida: shopify/snippets/rutas-basedj-mapa.liquid (mapa dentro del tema)
 y shopify/padres_por_handle.csv (para revisar)."""
 import csv
 from pathlib import Path
@@ -98,7 +98,7 @@ if fin.exists():
 with (ROOT / 'shopify' / 'padres_por_handle.csv').open('w', newline='', encoding='utf-8-sig') as f:
     w = csv.DictWriter(f, fieldnames=list(filas[0]), delimiter=';'); w.writeheader(); w.writerows(filas)
 snip = ('{%- comment -%}Generado por mapa_padres.py: |a:handle=colección del menú| y |m:handle=intermedias|. '
-        'Lo usa breadcrumbs-basedj para las colecciones que no están en el menú.{%- endcomment -%}\n'
+        'Lo usa rutas-basedj para las colecciones que no están en el menú.{%- endcomment -%}\n'
         + ''.join(entradas) + '|')
-(ROOT / 'shopify' / 'snippets' / 'basedj-padres.liquid').write_text(snip, encoding='utf-8')
+(ROOT / 'shopify' / 'snippets' / 'rutas-basedj-mapa.liquid').write_text(snip, encoding='utf-8')
 print('sin menú:', len(filas), '| con padre:', sum(1 for f in filas if f['ancla_menu'] or f['intermedias']), '| de primer nivel:', len(filas) - sum(1 for f in filas if f['ancla_menu'] or f['intermedias']))

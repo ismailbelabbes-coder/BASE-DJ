@@ -12,7 +12,7 @@
   assign nav = linklists[menu_handle]
   assign target = ''
   capture mapa
-    render 'basedj-padres'
+    render 'rutas-basedj-mapa'
   endcapture
   if template.name == 'collection'
     assign target = collection.handle
@@ -47,6 +47,11 @@
     if p == blank
       break
     endif
+    assign probe = ',' | append: chain | append: ','
+    assign needle = ',' | append: p.handle | append: ','
+    if probe contains needle or p.handle == target
+      break
+    endif
     if chain == blank
       assign chain = p.handle
     else
@@ -59,7 +64,7 @@
   endif
   assign chain = chain | split: ','
 
-  # Colecciones fuera del menú: el mapa basedj-padres (sacado de la jerarquía de PrestaShop que guarda
+  # Colecciones fuera del menú: el mapa rutas-basedj-mapa (sacado de la jerarquía de PrestaShop que guarda
   # el handle) indica de qué colección del menú cuelgan y las intermedias. Segunda pasada con ella.
   assign extra_list = ''
   assign menu_target = target
@@ -183,6 +188,27 @@
     assign u3 = ''
   endif
   assign kc = current | handleize
+  assign prevk = t1 | handleize
+  if t2 != blank
+    assign prevk = t2 | handleize
+  endif
+  if t3 != blank
+    assign prevk = t3 | handleize
+  endif
+  assign keep = ''
+  for h in extras
+    assign kh = collections[h].title | handleize
+    if kh != prevk and kh != kc and collections[h] != blank
+      if keep == blank
+        assign keep = h
+      else
+        assign keep = keep | append: ',' | append: h
+      endif
+      assign prevk = kh
+    endif
+  endfor
+  assign extras = keep | split: ','
+
   if extras.size == 0
     if t3 != blank and k3 == kc
       assign t3 = ''
